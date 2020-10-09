@@ -16,13 +16,8 @@ with open(csvpath) as csvfile:
     next(csvreader, None)
 
     # Create analysis output
-    #print("Financial Analysis")
-    #print("-------------------------------")
-
+    
     # Count number of months included in dataset
-    #num_of_rows = sum(1 for line in csvfile)
-    #print("Number of months:" ,num_of_rows)
-
     # Net total of profit/losses over period 
     month_count = 0
     total_value = 0
