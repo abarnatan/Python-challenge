@@ -57,11 +57,24 @@ with open(csvpath) as csvfile:
         
     print(KhanPercent,winner)        
 
+print("Election Results")
+print("-------------------------------")
+print((f"Total votes: {totalvotes}"")
+print("-------------------------------")
+print(f"Khan: {KhanVotes}")
+print(f"Correy: {CorreyVotes} \n")
+print(f"Greates Increase in Profits: {GreatestIncreaseDate} ${GreatestIncrease}")
+print(f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}")
 
 output_file = os.path.join("Analysis", "Analysis.txt")
 with open(output_file, "w") as text_file:  
     text_file.write ("Election Results \n")
-    text_file.write ("---------------- \n")
+    text_file.write ("---------------------------- \n")
     text_file.write (f"Total votes: {totalvotes} \n")
-    text_file.write (f"Total votes: {totalvotes} \n")
-    
+    text_file.write ("---------------------------- \n")
+    text_file.write (f"Khan: {KhanVotes} \n")
+    text_file.write (f"Correy: {CorreyVotes} \n")
+    text_file.write (f"Li: {LiVotes} \n")
+    text_file.write (f"O'Tooley: {TooleyVotes} \n")
+    text_file.write ("---------------------------- \n")
+    text_file.write (f"Winner: {winner} \n")
