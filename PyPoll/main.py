@@ -24,8 +24,7 @@ with open(csvpath) as csvfile:
     TooleyVotes = 0 
 
     # Create analysis output
-    # Count number of months included in dataset
-    # Net total of profit/losses over period 
+    # Count total votes
     # Count votes per candidate
     for row in csvreader:
         totalvotes = totalvotes + 1
