@@ -14,7 +14,7 @@ with open(csvpath) as csvfile:
 
     #skip header row
     next(csvreader, None)
-    # first_row = next(csvreader)
+    
    
     # Define Variables
     month_count = []
@@ -29,12 +29,13 @@ with open(csvpath) as csvfile:
         month_count.append(row[0])
 
         total_value.append(int(row[1])) 
-        
+
+    # create list to track differences between months     
     for x in range (1,len(total_value)):
         PLchange.append(int(total_value[x])-int(total_value[x-1]))
    
-    # print(PLchange)    
-
+      
+    # uses lists to track monthly data, calculate target values 
     totalmonths = len(month_count)
     totalProfit = sum(total_value)
     AvgChange = sum(PLchange) / len(PLchange)
@@ -55,7 +56,7 @@ print(f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}"
 # open and write to text file 
 output_file = os.path.join("Analysis.txt")
 # open output file
-with open(output_file.txt, "w") as text_file:  
+with open("output_file.txt", "w") as text_file:  
     text_file.write ("Financial Analysis \n")
     text_file.write ("---------------------------- \n")
     text_file.write (f"Number of months: + {totalmonths}\n") 
