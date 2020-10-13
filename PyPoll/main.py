@@ -70,16 +70,17 @@ print(f"Winner: {winner_is}")
 print("-------------------------------")
 
 
-output_file = os.path.join("Analysis", "Analysis.txt")
-with open(output_file.txt, w) as text_file:  
+output_file = os.path.join("Analysis.txt")
+
+with open(output_file.txt) as text_file:  
     text_file.write ("Election Results \n")
     text_file.write ("---------------------------- \n")
     text_file.write (f"Total votes: {totalvotes} \n")
     text_file.write ("---------------------------- \n")
-    text_file.write (f"Khan: {KhanVotes} \n")
-    text_file.write (f"Correy: {CorreyVotes} \n")
-    text_file.write (f"Li: {LiVotes} \n")
-    text_file.write (f"O'Tooley: {TooleyVotes} \n")
+    text_file.write (f"Khan: {round(KhanPercent)}% ({KhanVotes})\n")
+    text_file.write (f"Correy: {round(CorreyPercent)}% ({CorreyVotes})\n")
+    text_file.write (f"Li: {round(LiPercent)}% ({LiVotes})\n")
+    text_file.write (f"O'Tooley: {round(TooleyPercent)}% ({TooleyVotes})\n")
     text_file.write ("---------------------------- \n")
     text_file.write (f"Winner: {winner} \n")
-    text_file.close()
+    
