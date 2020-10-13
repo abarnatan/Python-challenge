@@ -35,7 +35,8 @@ with open(csvpath) as csvfile:
         PLchange.append(int(total_value[x])-int(total_value[x-1]))
    
       
-    # uses lists to track monthly data, calculate target values 
+    # use lists to track monthly data, calculate target values for avg, max and min profit
+    # use month list to find which months those max and min values fall in 
     totalmonths = len(month_count)
     totalProfit = sum(total_value)
     AvgChange = sum(PLchange) / len(PLchange)
@@ -55,7 +56,6 @@ print(f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}"
 
 # open and write to text file 
 output_file = os.path.join("Analysis.txt")
-# open output file
 with open("output_file.txt", "w") as text_file:  
     text_file.write ("Financial Analysis \n")
     text_file.write ("---------------------------- \n")
