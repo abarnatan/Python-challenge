@@ -43,8 +43,7 @@ with open(csvpath) as csvfile:
     GreatestIncreaseDate = month_count[PLchange.index(GreatestIncrease)+1] 
     GreatestDecreaseDate = month_count[PLchange.index(GreatestDecrease)+1]
 
-
-
+# print financial analysis 
 print("Financial Analysis")
 print("-------------------------------")
 print("Number of months:" + str(totalmonths))
@@ -52,3 +51,16 @@ print(f"Total: ${totalProfit}")
 print(f"Average Change: ${AvgChange}")
 print(f"Greates Increase in Profits: {GreatestIncreaseDate} ${GreatestIncrease}")
 print(f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}")
+
+# open and write to text file 
+output_file = os.path.join("Analysis.txt")
+# open output file
+with open(output_file.txt, "w") as text_file:  
+    text_file.write ("Financial Analysis \n")
+    text_file.write ("---------------------------- \n")
+    text_file.write (f"Number of months: + {totalmonths}\n") 
+    text_file.write (f"Total: ${totalProfit}\n")
+    text_file.write (f"Average Change: ${AvgChange}\n")
+    text_file.write (f"Greates Increase in Profits: {GreatestIncreaseDate} ${GreatestIncrease}\n")
+    text_file.write (f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}\n")
+   
