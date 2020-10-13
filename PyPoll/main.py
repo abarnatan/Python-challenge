@@ -14,7 +14,7 @@ with open(csvpath) as csvfile:
 
     #skip header row
     next(csvreader, None)
-    # first_row = next(csvreader)
+    
    
     # Define Variables
     totalvotes = 0
@@ -26,6 +26,7 @@ with open(csvpath) as csvfile:
     # Create analysis output
     # Count number of months included in dataset
     # Net total of profit/losses over period 
+    # Count votes per candidate
     for row in csvreader:
         totalvotes = totalvotes + 1
         if row[2] == "Khan": 
@@ -36,16 +37,18 @@ with open(csvpath) as csvfile:
             LiVotes = LiVotes + 1 
         else:
             TooleyVotes = TooleyVotes + 1
-    # print(KhanVotes,CorreyVotes,LiVotes,TooleyVotes)       
+   
+    # Calculate winner     
 
     winner = max(KhanVotes,CorreyVotes,LiVotes,TooleyVotes) 
-    # print(winner)
-
+    
+    # Calculate percentages of votes
     KhanPercent = KhanVotes / totalvotes * 100
     CorreyPercent = CorreyVotes / totalvotes * 100
     LiPercent = LiVotes / totalvotes * 100
     TooleyPercent = TooleyVotes / totalvotes * 100
 
+    # Conditional set to find winner
     if winner == KhanVotes: 
         winner_is = "Khan"
     elif winner == CorreyVotes:
@@ -55,8 +58,9 @@ with open(csvpath) as csvfile:
     else:
         winner_is = "O'Tooley"
         
-    #print(KhanPercent,winner)        
+        
 
+# print poll results 
 print("Election Results")
 print("-------------------------------")
 print(f"Total Votes: {totalvotes}")
@@ -71,16 +75,16 @@ print("-------------------------------")
 
 
 output_file = os.path.join("Analysis.txt")
-
-with open(output_file.txt) as text_file:  
-    text_file.write ("Election Results \n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Total votes: {totalvotes} \n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Khan: {round(KhanPercent)}% ({KhanVotes})\n")
-    text_file.write (f"Correy: {round(CorreyPercent)}% ({CorreyVotes})\n")
-    text_file.write (f"Li: {round(LiPercent)}% ({LiVotes})\n")
-    text_file.write (f"O'Tooley: {round(TooleyPercent)}% ({TooleyVotes})\n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Winner: {winner} \n")
+# open output file
+with open("output_file.txt", "w") as writer:  
+    writer.write ("Election Results \n")
+    writer.write ("---------------------------- \n")
+    writer.write (f"Total votes: {totalvotes} \n")
+    writer.write ("---------------------------- \n")
+    writer.write (f"Khan: {round(KhanPercent)}% ({KhanVotes})\n")
+    writer.write (f"Correy: {round(CorreyPercent)}% ({CorreyVotes})\n")
+    writer.write (f"Li: {round(LiPercent)}% ({LiVotes})\n")
+    writer.write (f"O'Tooley: {round(TooleyPercent)}% ({TooleyVotes})\n")
+    writer.write ("---------------------------- \n")
+    writer.write (f"Winner: {winner} \n")
     
