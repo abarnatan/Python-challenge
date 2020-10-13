@@ -36,15 +36,15 @@ with open(csvpath) as csvfile:
             LiVotes = LiVotes + 1 
         else:
             TooleyVotes = TooleyVotes + 1
-    print(KhanVotes,CorreyVotes,LiVotes,TooleyVotes)       
+    # print(KhanVotes,CorreyVotes,LiVotes,TooleyVotes)       
 
     winner = max(KhanVotes,CorreyVotes,LiVotes,TooleyVotes) 
-    print(winner)
+    # print(winner)
 
-    KhanPercent = KhanVotes / totalvotes 
-    CorreyPercent = CorreyVotes / totalvotes
-    LiPercent = LiVotes / totalvotes 
-    TooleyPercent = TooleyVotes / totalvotes 
+    KhanPercent = KhanVotes / totalvotes * 100
+    CorreyPercent = CorreyVotes / totalvotes * 100
+    LiPercent = LiVotes / totalvotes * 100
+    TooleyPercent = TooleyVotes / totalvotes * 100
 
     if winner == KhanVotes: 
         winner_is = "Khan"
@@ -55,26 +55,30 @@ with open(csvpath) as csvfile:
     else:
         winner_is = "O'Tooley"
         
-    print(KhanPercent,winner)        
+    #print(KhanPercent,winner)        
 
 print("Election Results")
 print("-------------------------------")
-print((f"Total votes: {totalvotes}"")
+print(f"Total Votes: {totalvotes}")
 print("-------------------------------")
-print(f"Khan: {KhanVotes}")
-print(f"Correy: {CorreyVotes} \n")
-print(f"Greates Increase in Profits: {GreatestIncreaseDate} ${GreatestIncrease}")
-print(f"Greates Decrease in Profits: {GreatestDecreaseDate} ${GreatestDecrease}")
+print(f"Khan: {round(KhanPercent)}% ({KhanVotes})")
+print(f"Correy: {round(CorreyPercent)}% ({CorreyVotes})")
+print(f"Li: {round(LiPercent)}% ({LiVotes})")
+print(f"O'Tooley: {round(TooleyPercent)}% ({TooleyVotes})")
+print("-------------------------------")
+print(f"Winner: {winner_is}")
+print("-------------------------------")
 
-output_file = os.path.join("Analysis", "Analysis.txt")
-with open(output_file, "w") as text_file:  
-    text_file.write ("Election Results \n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Total votes: {totalvotes} \n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Khan: {KhanVotes} \n")
-    text_file.write (f"Correy: {CorreyVotes} \n")
-    text_file.write (f"Li: {LiVotes} \n")
-    text_file.write (f"O'Tooley: {TooleyVotes} \n")
-    text_file.write ("---------------------------- \n")
-    text_file.write (f"Winner: {winner} \n")
+
+# output_file = os.path.join("Analysis", "Analysis.txt")
+# with open(output_file, "w") as text_file:  
+#      text_file.write ("Election Results \n")
+#      text_file.write ("---------------------------- \n")
+#      text_file.write (f"Total votes: {totalvotes} \n")
+#      text_file.write ("---------------------------- \n")
+#      text_file.write (f"Khan: {KhanVotes} \n")
+#      text_file.write (f"Correy: {CorreyVotes} \n")
+#      text_file.write (f"Li: {LiVotes} \n")
+#      text_file.write (f"O'Tooley: {TooleyVotes} \n")
+#      text_file.write ("---------------------------- \n")
+#      text_file.write (f"Winner: {winner} \n")
